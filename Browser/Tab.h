@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
 
 #define kTabWidth 100.0
 
