@@ -359,6 +359,8 @@
         return NO;
     }
     
+    
+    //TODO RB - why is this needed (final load) - doesn't work anyway, does it? - needed that titles in tabs are set
     // CAPTURE PAGE LOAD
     if ([[[request URL] absoluteString] isEqualToString:@"js:gh-page-loaded"]) {
         [self webViewDidFinishFinalLoad:webView];
@@ -427,6 +429,9 @@
         _isLoading = NO;
         [[NSNotificationCenter defaultCenter] postNotificationName:kFinishedLoadingNotification object:self];
     }
+    
+    
+     //TODO RB - why is this needed (final load) - doesn't work anyway, does it?
     if (![[[webView request] URL] isFileURL] && _currentURL != nil) {
         [webView stringByEvaluatingJavaScriptFromString:@"if (document.getElementById('gh-page-loaded') == null && document.documentElement.innerHTML != '<head></head><body></body>') {"
          "var iframe = document.createElement('IFRAME');"
@@ -437,6 +442,7 @@
          "iframe = null;"
          "document.body.style.webkitTouchCallout='none';}" ];
     }
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -451,7 +457,10 @@
     [self decrementLoadingCount];
     if (wasLoadingBeforeDecrement && _loadingCount == 0) {
         _isLoading = NO;
-        [[NSNotificationCenter defaultCenter] postNotificationName:kFinishedLoadingNotification object:self];
+        
+        //[[NSNotificationCenter defaultCenter] postNotificationName:kFinishedLoadingNotification object:self];
+        //add error as user info to distinguish between successful and unsuccessful page loading
+        [[NSNotificationCenter defaultCenter] postNotificationName:kFinishedLoadingNotification object:self userInfo:@{@"error": error}];
     }
     LogDebug(@"loading count: %lu", (unsigned long)_loadingCount);
 }
