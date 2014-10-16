@@ -840,12 +840,22 @@ typedef enum ScrollDirection {
 	_tabsView.clipsToBounds = YES;
 	_tabsView.showsHorizontalScrollIndicator = NO;
 	
+ 
+    
     if ([urlAddress isEqualToString:@""]) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"launch" ofType:@"html"];
-        NSData *launchData = [NSData dataWithContentsOfFile:path];
-        [[self webView] loadData:launchData MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:nil];
-        if (![_addressBar isFirstResponder])  {
-            [_addressBar setText:urlAddress];
+        
+        NSString *defaultURL=[self getDefaultLaunchURL];
+        if (defaultURL && ![defaultURL isEqualToString:@""]){
+            //load a default URL if one is provided
+            [self gotoAddress:nil withRequestObj:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:defaultURL]] inTab:_selectedTab];
+        } else {
+            //otherwise load the default local file
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"launch" ofType:@"html"];
+            NSData *launchData = [NSData dataWithContentsOfFile:path];
+            [[self webView] loadData:launchData MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:nil];
+            if (![_addressBar isFirstResponder])  {
+                [_addressBar setText:urlAddress];
+            }
         }
         
     } else {
@@ -853,6 +863,11 @@ typedef enum ScrollDirection {
     }
     
 	[self loadTabs:[_selectedTab webView]];
+}
+
+-(NSString *) getDefaultLaunchURL {
+    //hock for subclasses to provide a default launch URL
+    return nil;
 }
 
 -(IBAction) removeTab:(id)sender {
