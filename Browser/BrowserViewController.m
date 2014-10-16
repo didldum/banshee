@@ -1030,6 +1030,9 @@ typedef enum ScrollDirection {
 }
 
 
+- (IBAction)selectedLeftActionButton:(id)sender {
+}
+
 -(void) loadTabs:(UIWebView *)webView {
     LogTrace(@"%s", __PRETTY_FUNCTION__);
     

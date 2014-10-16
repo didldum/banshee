@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -13,6 +12,7 @@
                 <outlet property="bookmarkButton" destination="LNT-s5-BBY" id="eLZ-bw-7EG"/>
                 <outlet property="bottomBar" destination="hZW-qO-rvv" id="U5f-MO-oJ0"/>
                 <outlet property="forwardButton" destination="hJx-zz-ow8" id="7NC-9q-X17"/>
+                <outlet property="leftActionButton" destination="iPc-IO-eOs" id="5be-xt-pti"/>
                 <outlet property="moreButton" destination="BFd-HB-iTN" id="4M8-j6-3at"/>
                 <outlet property="progressBar" destination="183" id="184"/>
                 <outlet property="refreshButton" destination="126" id="147"/>
@@ -50,7 +50,6 @@
                                 <constraint firstAttribute="height" constant="44" id="hxf-xK-ksN"/>
                             </constraints>
                             <items>
-                                <barButtonItem style="plain" systemItem="flexibleSpace" id="l6j-iK-U6V"/>
                                 <barButtonItem enabled="NO" image="left.png" width="28" style="plain" id="9rt-QG-NlJ" userLabel="Back">
                                     <inset key="imageInsets" minX="0.0" minY="2" maxX="0.0" maxY="-1"/>
                                     <connections>
@@ -177,9 +176,12 @@
                                 <constraint firstAttribute="width" constant="30" id="1YJ-Wf-jbU"/>
                                 <constraint firstAttribute="height" constant="30" id="9XM-RO-95B"/>
                             </constraints>
-                            <state key="normal" backgroundImage="ORFZiegel">
+                            <state key="normal" backgroundImage="folder.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="selectedLeftActionButton:" destination="-1" eventType="touchUpInside" id="lS7-GG-E6l"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -257,7 +259,7 @@
         </view>
     </objects>
     <resources>
-        <image name="ORFZiegel" width="30" height="30"/>
+        <image name="folder.png" width="16" height="16"/>
         <image name="left.png" width="24" height="32"/>
         <image name="refresh.png" width="48" height="48"/>
         <image name="right.png" width="24" height="32"/>

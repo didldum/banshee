@@ -35,6 +35,8 @@
 @property(nonatomic,strong) IBOutlet UIView *addressBarButtonsView;
 @property(nonatomic,strong) IBOutlet UIButton *refreshButton;
 @property(nonatomic,strong) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIButton *leftActionButton;
+
 
 @property(nonatomic,strong) IBOutlet UIBarButtonItem *forwardButton;
 @property(nonatomic,strong) IBOutlet UIBarButtonItem *backButton;
@@ -87,6 +89,7 @@
 -(IBAction) selectTab:(id)sender;
 -(IBAction) removeTab:(id)sender;
 //-(IBAction) toggleTabsView:(id)sender;
+- (IBAction)selectedLeftActionButton:(id)sender;
 
 -(void) loadTabs:(UIWebView *) webView;
 -(void) switchTabFrom:(Tab *)fromTab ToTab:(Tab *)toTab;
