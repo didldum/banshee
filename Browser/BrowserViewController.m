@@ -541,7 +541,7 @@ typedef enum ScrollDirection {
         _gotoUrl = [NSURL URLWithString: [@"http://" stringByAppendingString:[_gotoUrl absoluteString]]];
     }
     NSURLRequest *request = [NSURLRequest requestWithURL:_gotoUrl];
-    if ([inputText rangeOfString:@"."].location != NSNotFound && [NSURLConnection canHandleRequest:request]){
+    if ([NSURLConnection canHandleRequest:request]){
         [self gotoAddress:sender withRequestObj:request inTab:_selectedTab];
     } else {
         [self searchWeb:sender];
