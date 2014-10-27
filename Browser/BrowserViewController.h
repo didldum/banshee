@@ -44,12 +44,13 @@
 @property(nonatomic,strong) IBOutlet UIBarButtonItem *searchItem;
 @property(nonatomic,strong) IBOutlet UIBarButtonItem *moreButton;
 @property(nonatomic,strong) IBOutlet UIBarButtonItem *bookmarkButton;
+@property(nonatomic,strong) IBOutlet UIBarButtonItem *addTab;
+
 
 @property(nonatomic,strong) UIBarButtonItem *barItemPopoverPresenter;
 @property(nonatomic,strong) UIActionSheet *popupQuery;
 @property(nonatomic,strong) UIPopoverController *padPopover;
 
-@property(nonatomic,strong) IBOutlet UIButton *addTab;
 @property(nonatomic,strong) Tab *selectedTab;
 @property(nonatomic,strong) NSMutableArray *tabs;
 
