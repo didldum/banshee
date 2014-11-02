@@ -618,7 +618,10 @@ typedef enum ScrollDirection {
     
     [self dismissPopups];
     [self.view bringSubviewToFront:self.bookmarksNavController.view];
-    self.bookmarksNavController.view.frame = CGRectMake(0, 0, self.bookmarksNavController.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height);
+    
+    self.bookmarksNavController.view.frame = CGRectMake(0, 0, [self screenSize].width, [self screenSize].height);
+    //self.bookmarksNavController.view.frame = CGRectMake(0, 0, self.bookmarksNavController.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height);
+    
     //Reload all bC controllers on the navigation stack
     for (BookmarksController* bC in self.bookmarksNavController.viewControllers)
     {
@@ -1126,6 +1129,14 @@ typedef enum ScrollDirection {
 #endif
 }
 
-
+//http://stackoverflow.com/questions/24150359/is-uiscreen-mainscreen-bounds-size-becoming-orientation-dependent-in-ios8
+- (CGSize)screenSize {
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    if ((NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1) && UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        return CGSizeMake(screenSize.height, screenSize.width);
+    } else {
+        return screenSize;
+    }
+}
 
 @end
