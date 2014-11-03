@@ -764,9 +764,13 @@ typedef enum ScrollDirection {
         } else {
             [self.padPopover setContentViewController:bookmarksNavController animated:YES];
         }
-        [self.padPopover presentPopoverFromBarButtonItem:_bookmarkButton
-                                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         
+        //ios8 bugfix: 
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            [self.padPopover presentPopoverFromBarButtonItem:_bookmarkButton
+                                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        });
+                       
     } else {
         [self presentViewController:bookmarksNavController animated:YES completion:nil];
     }
