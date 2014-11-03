@@ -91,7 +91,7 @@
 																				target:self 
 																				action:@selector(switchToBrowser:)];
 	[self.navigationItem setRightBarButtonItem:doneButton];
-	self.navigationItem.title = @"Bookmarks";
+	self.navigationItem.title = NSLocalizedString(@"Bookmarks",nil);
 	
 	// default to view mode
 	if (!mode) {

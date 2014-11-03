@@ -66,7 +66,7 @@
         _tabTitleFrame = CGRectMake(5, 1, 80, 22);
         _tabTitle = [[UILabel alloc] initWithFrame:_tabTitleFrame];
         _tabTitle.font = [UIFont systemFontOfSize:11];
-        _tabTitle.text = @"New Tab";
+        _tabTitle.text = NSLocalizedString(@"New Tab",nil);
         
 		// append views
         [_tabButton addSubview:_tabTitle];
@@ -412,7 +412,7 @@
     NSString *tabTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 //    NSString *url = [webView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
     if ([tabTitle length] == 0) {
-        _tabTitle.text = @"New Tab";
+        _tabTitle.text = NSLocalizedString(@"New Tab",nil);
 //        [self setTitle:@"Untitled"];
     } else {
 //        [self setTitle:tabTitle];

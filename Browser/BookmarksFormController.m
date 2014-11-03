@@ -23,7 +23,7 @@
 		mode = 'A';
 	}
 	
-	doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveBookmark:)];
+	doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save",nil) style:UIBarButtonItemStyleDone target:self action:@selector(saveBookmark:)];
 	cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(switchToBrowser:)];
 	
 	if ([self respondsToSelector:@selector(setPreferredContentSize:)]) {
