@@ -44,7 +44,7 @@
                                 <action selector="finishEditMode:" destination="-1" id="39"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="163" style="plain" systemItem="fixedSpace" id="34"/>
+                        <barButtonItem width="140" style="plain" systemItem="fixedSpace" id="34"/>
                         <barButtonItem title="New Folder" id="30">
                             <connections>
                                 <action selector="addFolder:" destination="-1" id="40"/>
