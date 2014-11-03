@@ -212,7 +212,7 @@
     {
         for (UIBarButtonItem *item in editToolbar.items)
         {
-            if([[item title] isEqualToString:@"New Folder"])
+            if([[item title] isEqualToString:NSLocalizedString(@"New Folder",nil)])
             {
                 [item setEnabled:NO];
                 [item setTintColor:[UIColor clearColor]];
@@ -223,7 +223,7 @@
     {
         for (UIBarButtonItem *item in editToolbar.items)
         {
-            if([[item title] isEqualToString:@"New Folder"])
+            if([[item title] isEqualToString:NSLocalizedString(@"New Folder",nil)])
             {
                 [item setEnabled:YES];
                 [item setTintColor:nil];

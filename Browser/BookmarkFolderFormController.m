@@ -38,10 +38,10 @@
     //Disable edit mode in the bookmarks controller
     [bookmarksController finishEditMode:self];
 	if (mode == 'A') {
-		self.navigationItem.title = @"New Bookmark Folder";
+        self.navigationItem.title = NSLocalizedString(@"New Bookmark Folder",nil);
 		[nameField setText:@""];
 	} else if (mode == 'E') {
-		self.navigationItem.title = @"Edit Bookmark Folder";
+		self.navigationItem.title =  NSLocalizedString(@"Edit Bookmark Folder",nil);
         NSDictionary* folderDict = (NSDictionary*)[bookmarksController.folders objectAtIndex:self.folderIndex];
         NSString* folderTitle = (NSString*)[folderDict objectForKey:@"title"];
         [nameField setText:folderTitle];
@@ -56,7 +56,7 @@
     
     if([[nameField.text stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]] length] == 0)
     {
-        [nameField setText:@"New Folder"];
+        [nameField setText:NSLocalizedString(@"New Folder",nil)];
     }
     
 	if (mode == 'A') {

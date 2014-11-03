@@ -41,7 +41,7 @@
     //Edit mode
 	if (mode == 'E') {
 		// adjust nav
-		self.navigationItem.title = @"Edit Bookmark";
+		self.navigationItem.title =  NSLocalizedString(@"Edit Bookmark",nil);
 		[self.navigationItem setRightBarButtonItem:doneButton];
 		[self.navigationItem setLeftBarButtonItem:nil];
 		
@@ -54,7 +54,7 @@
 		
 	} else if (mode == 'A') { //Add Bookmark mode
 		// adjust nav
-		self.navigationItem.title = @"Add Bookmark";
+		self.navigationItem.title =  NSLocalizedString(@"Add Bookmark",nil);
 		[self.navigationItem setRightBarButtonItem:doneButton];
 		[self.navigationItem setLeftBarButtonItem:cancelButton];
         [parentField setHidden:NO];
@@ -160,10 +160,10 @@
                 if([[urlField.text stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]
                     isEqualToString:[bookmarkDict objectForKey:@"URL"]])
                 {
-                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Duplicate Bookmark"
-                                                                    message:[NSString stringWithFormat:@"This is in bookmark from folder  \"%@\"",[folderDict objectForKey:@"title"]]
+                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Duplicate Bookmark",nil)
+                                                                    message:[NSString localizedStringWithFormat:NSLocalizedString(@"This is in bookmark from folder  \"%@\"",nil),[folderDict objectForKey:@"title"]]
                                                                    delegate:self
-                                                          cancelButtonTitle:@"OK"
+                                                          cancelButtonTitle: NSLocalizedString(@"OK",nil)
                                                           otherButtonTitles:nil];
                     [alert show];
                     return;
@@ -175,10 +175,10 @@
     //Show alert if at max capacity and return
     if(totalBookmarks >= MAX_BOOKMARKS)
     {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Unable to Add Bookmark"
-                                                        message:@"Bookmarks have reached max. capacity"
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unable to Add Bookmark",nil)
+                                                        message:NSLocalizedString(@"Bookmarks have reached max. capacity",nil)
                                                        delegate:self
-                                              cancelButtonTitle:@"OK"
+                                              cancelButtonTitle:NSLocalizedString(@"OK",nil)
                                               otherButtonTitles:nil];
         [alert show];
         return;
