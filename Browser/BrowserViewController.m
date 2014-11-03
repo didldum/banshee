@@ -656,9 +656,9 @@ typedef enum ScrollDirection {
     // hide add bookmark for local html files
     NSURL *url = [[self webView].request URL];
     if ([url isFileURL] || [[url absoluteString] isEqualToString:@"about:blank"]) {
-        return [NSArray arrayWithObjects:@"Clear Cookies", @"Clear Cache", nil];
+        return [NSArray arrayWithObjects:NSLocalizedString(@"Clear Cookies",nil), NSLocalizedString(@"Clear Cache",nil), nil];
     } else {
-        return [NSArray arrayWithObjects:@"Add Bookmark", @"Clear Cookies", @"Clear Cache", nil];
+        return [NSArray arrayWithObjects:NSLocalizedString(@"Add Bookmark",nil), NSLocalizedString(@"Clear Cookies",nil),NSLocalizedString(@"Clear Cache",nil), nil];
     }
 }
 
